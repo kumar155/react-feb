@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default class UsersData extends Component {
     constructor() {
@@ -13,6 +15,10 @@ export default class UsersData extends Component {
     render() {
         return (
             <div className="container">
+                <div className="nav-bar"><br />
+                    <br />
+                    <Link to="/">Show Home Page</Link>
+                </div>
                 <h3>Users Data table...</h3>
                 <hr />
                 <div className="row">
