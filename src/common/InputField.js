@@ -16,7 +16,8 @@ export default class InputField extends React.Component {
                 type="text"
                 className="form-control"
                 placeholder={this.props.placeHolder} 
-                onChange={(event) => this.onInputChange(event)}/>
+                onChange={(event) => this.onInputChange(event)}
+                value={this.props.value}/>
         );
     }
 }
