@@ -14,8 +14,8 @@ export default class ComboBox extends Component {
                 value={this.state.selectedValue}
                 onChange={(event) => this.onItemSelected(event.target.value)}>
                 {
-                    this.props.items.map((item) =>
-                        <option value={item.value}>{item.text}</option>
+                    this.props.items.map((item, index) =>
+                        <option value={item.value} key={index}>{item.text}</option>
                     )}
             </select>
         );

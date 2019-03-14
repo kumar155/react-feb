@@ -15,14 +15,23 @@ export class AddQuestion extends React.Component {
             Option3: '',
             Option4: '',
             Answer: '',
-            items: [{ value: 'Option1', text: 'Option1' },
-            { value: 'Option2', text: 'Option2' },
-            { value: 'Option3', text: 'Option3' },
-            { value: 'Option4', text: 'Option4' }],
         }
     }
 
+    componentWillMount() {
+        console.log('component will mount is triggered...'); 
+    }
+
+    componentDidMount() {
+        console.log('component did mount is triggered...'); 
+    }
+
+    componentWillReceiveProps(){
+        console.log('component will receive props is triggered...'); 
+    }
+
     render() {
+        console.log('render is triggered...'); 
         return (
             <div className="form" style={{ border: '1px solid gray', padding: 10 }}>
                 <div className="form-group">
@@ -62,9 +71,9 @@ export class AddQuestion extends React.Component {
                 </div>
                 <div className="form-group">
                     <label>Answer</label>
-                    <ComboBox items={this.state.items}
-                        selectedValue={this.state.items[0].value}
-                        onItemSelected={this.onItemSelected} ></ComboBox>
+                    <ComboBox items={this.props.options}
+                        selectedValue={this.props.options[0].value}
+                        onItemSelected={this.onItemSelected}></ComboBox>
                 </div>
                 <button type="submit" className="btn btn-primary"
                     onClick={() => this.submitChanges()}>Submit</button>
@@ -82,16 +91,20 @@ export class AddQuestion extends React.Component {
     }
 
     onItemSelected = (item) => {
-        console.log('selected item is:', item);
+        this.setState({ Answer: item });
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     addQuestion: (item) => dispatch(actions.addQuestion(item)),
-})
+});
+
+const mapStateToProps = (store) => ({
+    options: store.comboBoxOptions,
+});
 
 
-export default connect(null, mapDispatchToProps)(AddQuestion);
+export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
 
 
 AddQuestion.propTypes = {

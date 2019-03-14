@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { SimpleReducer, decrementCounter, incrementCounter } from './reducers/simpleReducer';
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {questions} from './reducers/Questions';
+import { questions, comboBoxOptions } from './reducers/Questions';
 
 
 const reducers = combineReducers(
@@ -11,6 +11,7 @@ const reducers = combineReducers(
         incrementCounter,
         decrementCounter,
         questions,
+        comboBoxOptions,
     }
 );
 

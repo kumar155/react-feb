@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 export class QuestionsList extends React.Component {
     constructor(props) {
         super(props);
+    }    
+
+    componentWillReceiveProps(nextProps){
+        console.log(this.props);
+        console.log(nextProps);
+        console.log('component will receive props is triggered...'); 
     }
 
     render() {
