@@ -13,6 +13,17 @@ export class QuestionsList extends React.Component {
         console.log('component will receive props is triggered...'); 
     }
 
+    componentWillUpdate() {
+        console.log('component will update is triggered...'); 
+    }
+
+    shouldComponentUpdate(nextProps) {
+        console.log('nextprops' ,nextProps);
+        if (nextProps.questions != this.props.questions) {
+            return true;
+        }
+    }
+
     render() {
         return (
             <div className="container">

@@ -16,6 +16,8 @@ export class AddQuestion extends React.Component {
             Option4: '',
             Answer: '',
         }
+        console.log('component initialisation called...'); 
+        
     }
 
     componentWillMount() {
@@ -28,6 +30,19 @@ export class AddQuestion extends React.Component {
 
     componentWillReceiveProps(){
         console.log('component will receive props is triggered...'); 
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('nextState' ,nextState);
+        return true;
+    }    
+
+    componentWillUpdate() {
+        console.log('component will update is triggered...'); 
+    }
+
+    componentDidUpdate() {
+        console.log('component did update is triggered...');        
     }
 
     render() {
